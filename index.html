@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휴직숙려캠프 - 잠시 멈춤도 용기입니다</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #131E3A;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #131E3A;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #FFD700;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question span {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .question select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        .result {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 12px;
+            font-size: 18px;
+        }
+        .button {
+            width: 100%;
+            padding: 15px;
+            background-color: #27ae60;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #2ecc71;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        footer img {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        /* New styles for message and status */
+        #statusMessage {
+            font-size: 1.2em;  /* 1.2 times larger */
+            color: #000000;  /* Black color */
+            text-align: center;
+        }
+
+        #encouragementMessage {
+            font-size: 1.0em;
+            color: #FFFFFF;  /* White color */
+            text-align: center; /* Center align */
+            line-height: 1.5;  /* Line spacing */
+            white-space: pre-line;  /* Maintain line breaks */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>휴직숙려캠프 - 잠시 멈춤도 용기입니다</h1>
+    <h2>지금, 잠시 쉬어가며 내 마음과 생활을 돌아보세요.</h2>
+
+    <form id="surveyForm">
+        <!-- 첫 번째 페이지 (10문항) -->
+        <div class="page" id="page1">
+            <h3>생활과 일상의 리듬 🕒</h3>
+            <div class="question">
+                <span>1. 아침에 눈 뜨는 것이 힘들고 무거운가요?</span>
+                <select name="q1">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>2. 하루 종일 피로감이 사라지지 않나요?</span>
+                <select name="q2">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>3. 목, 어깨, 허리 등 몸 여기저기가 자주 아픈가요?</span>
+                <select name="q3">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>4. 밤에 자주 깨거나 불면증이 있나요?</span>
+                <select name="q4">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>5. 아침부터 기운이 없고 몸이 무거운가요?</span>
+                <select name="q5">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>6. 스트레스로 인해 소화불량이나 위장 장애가 자주 있나요?</span>
+                <select name="q6">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>7. 최근 들어 몸이 약해지고 체력이 떨어진 느낌인가요?</span>
+                <select name="q7">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>8. 자주 편두통이나 두통이 발생하나요?</span>
+                <select name="q8">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>9. 가슴이 답답하거나 호흡이 불편하게 느껴진 적이 있나요?</span>
+                <select name="q9">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>10. 출근길이 유독 멀고 힘들게 느껴지나요?</span>
+                <select name="q10">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <button type="button" class="button" onclick="nextPage(1)">다음</button>
+        </div>
+
+        <!-- 두 번째 페이지 (10문항) -->
+        <div class="page" id="page2" style="display: none;">
+            <h3>내 마음의 공간 💭</h3>
+            <div class="question">
+                <span>11. 요즘 작은 일에도 예민하게 짜증이 나나요?</span>
+                <select name="q11">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>12. 예전보다 집중력이 확실히 떨어졌나요?</span>
+                <select name="q12">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>13. 불안하거나 초조함이 자주 느껴지나요?</span>
+                <select name="q13">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>14. 최근 감정 기복이 심해 눈물이 자주 나나요?</span>
+                <select name="q14">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>15. 학생과의 소통이 어렵고 버겁게 느껴지나요?</span>
+                <select name="q15">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>16. 교직 생활에서 자꾸만 자신감이 떨어지나요?</span>
+                <select name="q16">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>17. 혼자 있고 싶다는 생각이 자주 드나요?</span>
+                <select name="q17">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>18. 휴식이나 취미를 해도 즐겁지 않거나 편안하지 않은가요?</span>
+                <select name="q18">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>19. 미래가 불안하게 느껴지나요?</span>
+                <select name="q19">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>20. 자꾸 스스로에게 실망하거나 좌절하나요?</span>
+                <select name="q20">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <button type="button" class="button" onclick="nextPage(2)">다음</button>
+        </div>
+
+        <!-- 세 번째 페이지 (10문항) -->
+        <div class="page" id="page3" style="display: none;">
+            <h3>업무에서의 여유 찾기 📚</h3>
+            <div class="question">
+                <span>21. 요즘 업무가 너무 많고 끝이 없어 보이나요?</span>
+                <select name="q21">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>22. 퇴근 후에도 업무 생각이 머리에서 떠나지 않나요?</span>
+                <select name="q22">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>23. 업무 전화나 메시지에 스트레스와 부담을 느끼나요?</span>
+                <select name="q23">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>24. 교직 생활이 만족스럽지 못하고 힘든가요?</span>
+                <select name="q24">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>25. 출근길이 예전보다 훨씬 힘겹게 느껴지나요?</span>
+                <select name="q25">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>26. 최근 교직을 그만두고 싶은 생각이 들었나요?</span>
+                <select name="q26">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>27. 학교에서의 하루가 길고 지겹게 느껴지나요?</span>
+                <select name="q27">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>28. 업무로 인해 개인 생활이 제대로 이루어지지 않나요?</span>
+                <select name="q28">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>29. 방학이나 휴가만 기다리며 살고 있나요?</span>
+                <select name="q29">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>30. 학교 가는 날이 두렵거나 싫은 날이 많나요?</span>
+                <select name="q30">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <button type="button" class="button" onclick="nextPage(3)">다음</button>
+        </div>
+
+        <!-- 네 번째 페이지 (10문항) -->
+        <div class="page" id="page4" style="display: none;">
+            <h3>내 삶의 변화 🌱</h3>
+            <div class="question">
+                <span>31. 최근 칭찬받거나 인정받은 기억이 거의 없나요?</span>
+                <select name="q31">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>32. 요즘 나 자신에게 실망하는 일이 잦나요?</span>
+                <select name="q32">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>33. 나 자신을 돌보는 시간이 충분하지 않나요?</span>
+                <select name="q33">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>34. 교직 이외의 다른 삶을 꿈꾸게 되나요?</span>
+                <select name="q34">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>35. 최근 취미 활동이 더 이상 즐겁지 않은가요?</span>
+                <select name="q35">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>36. 주변 사람과의 관계가 멀어지고 있다고 느끼나요?</span>
+                <select name="q36">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>37. 일상의 행복이나 만족감이 크게 줄었나요?</span>
+                <select name="q37">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>38. 최근 혼자 있는 시간이 많이 필요하다고 느끼나요?</span>
+                <select name="q38">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>39. 교직 생활을 하면서 자주 외로움을 느끼나요?</span>
+                <select name="q39">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <div class="question">
+                <span>40. 최근 삶이 낯설고 어색하게 느껴지나요?</span>
+                <select name="q40">
+                    <option value="0">전혀 아님</option>
+                    <option value="1">가끔 그렇다</option>
+                    <option value="2">보통이다</option>
+                    <option value="3">자주 그렇다</option>
+                    <option value="4">항상 그렇다</option>
+                </select>
+            </div>
+            <button type="button" class="button" onclick="calculateResult()">결과 확인</button>
+        </div>
+    </form>
+
+    <div class="result" id="result" style="display:none;">
+        <p id="statusMessage"></p>
+        <p id="encouragementMessage"></p>
+        <p><span>모든 선생님을 응원합니다! 🌟</span></p>
+    </div>
+</div>
+
+<footer>
+    <a href="https://www.youtube.com/@%EB%B0%B0%EC%9B%80%EC%9D%98%EB%8B%AC%EC%9D%B8-p5v" target="_blank">
+        <img src="mycharacter.png" alt="YouTube 바로가기">
+    </a>
+    <br>
+    <a href="https://open.kakao.com/o/gubGYQ7g" target="_blank">AI활용 코딩을 함께하실 분들과 소통하고 싶습니다.^^</a>
+    <br>
+    <p>© 유튜브 배움의달인 김문정</p>
+</footer>
+
+<script>
+    function nextPage(pageNum) {
+        // Hide the current page
+        document.getElementById('page' + pageNum).style.display = 'none';
+        // Show the next page
+        document.getElementById('page' + (pageNum + 1)).style.display = 'block';
+    }
+
+    function calculateResult() {
+        let totalScore = 0;
+        const form = document.forms['surveyForm'];
+
+        for (let i = 1; i <= 40; i++) {
+            const question = form['q' + i];
+            if (question) {
+                totalScore += parseInt(question.value);
+            }
+        }
+
+       let status = '';
+let message = '';
+if (totalScore >= 120) {
+    status = '잠시 나를 위한 충전이 필요한 순간';
+    message = '지금은 모두를 위한 영웅보다 자신에게 친절한 친구가 되어주세요.\n 충분히 쉬고 다시 웃으며 만나길 기대할게요. 💖';
+} else if (totalScore >= 90) {
+    status = '혼자 안아주기엔 버거운 마음';
+    message = '누구나 길을 잃을 때가 있어요.\n 전문가의 도움과 함께라면 길을 찾기 더 쉬워질 거예요. 💬';
+} else if (totalScore >= 60) {
+    status = '조금 숨이 차도 괜찮아요';
+    message = '약간 숨이 차도 괜찮아요.\n 가끔 멈춰서서 호흡을 가다듬고 자신을 토닥여주세요. 💪';
+} else {
+    status = '이미 충분히 잘하고 있는 당신';
+    message = '혹시 모르셨나요? 당신은 이미 최고입니다!\n가끔 지쳐도 잘 버텨줘서 고마워요. 오늘 하루도 수고 많았어요. 🌟';
+}
+
+// HTML로 표시할 때 줄바꿈을 유지하려면 HTML 코드에서 <pre> 또는 <br> 태그를 사용
+document.getElementById('statusMessage').innerText = status;
+document.getElementById('statusMessage').style.fontSize = '1.2em';    // 텍스트 크기 1.2배 키우기
+document.getElementById('statusMessage').style.color = '#000000';    // 텍스트 색상
+document.getElementById('statusMessage').style.fontWeight = 'bold';  // 볼드 처리 추가
+
+document.getElementById('encouragementMessage').innerHTML = message.replace(/\n/g, '<br>');
+document.getElementById('encouragementMessage').style.textAlign = 'center';  
+document.getElementById('encouragementMessage').style.fontSize = '1.0em';  
+document.getElementById('encouragementMessage').style.color = '#FFFFFF';  
+
+document.getElementById('result').style.display = 'block';
+
+    }
+</script>
+
+</body>
+</html>
